@@ -19,7 +19,7 @@
 			margin: auto;
 			max-width: 1024px;
 			width: auto;
-			min-height: 200px;
+			min-height: 300px;
 			height: auto;
 			border: 3px solid green;
 		}
@@ -34,12 +34,6 @@
 			padding: 0.5rem;
 			border: 1px solid #ccc;
 			background-color: rgba(204, 0, 0, 0.5);
-		}
-
-		input, button {
-			height: 22px;
-			margin: auto;
-			padding: 0.5rem;
 		}
 
 	</style>
@@ -59,26 +53,34 @@
 				(breadwinning job)
 			</li>
 		</ul>
-		
-		<input type="text" id="newItem">
-		<button type="submit" id="submit">add new item</button>
 
 	</div>
 
+	<input type="text" id="newItem">
+	<input type="submit" id="submit" value="add new item">
+
 	<script>
 
-		var ul = $('#list'), li = $('#list li');
+		var ul = $('#list'), li = $('#list li'), ni = $('#newItem'), sm = $('#submit');
 
 		$(document).ready(function() {
-		
-			$(li).on('click', function() {
-				$(this).animate({
-					opacity: 0,
-					marginRight: '-180'
-				}, 3000, function() {
-					$(this).remove();
-				});
+
+			$(sm).on('click', function() {
+				var nival = $(ni).val();
+				$('ul').append('<li>' + nival + '</li>');
 			});
+
+		});
+		
+				$(li).on('click', function() {
+					$(this).animate({
+						opacity: 0,
+						marginRight: '-180'
+					}, 3000, function() {
+						$(this).remove();
+					});
+				
+
 
 		});
 
